@@ -1,0 +1,182 @@
+Basic Introduction to Devops
+===============================
+
+Devops : Devops is not the tool/ technology as most of the people think. Infact its a culture/process that software companies follow to develop , release and maintenance  of software application/project/product with high quality and in very fast way by using automation tools.
+
+In any software product, there are two group of engineer works:
+1. Development group
+2. Operation/Non-Development/Administrator(BA)
+
+Development Group: People who are involved in below areas are considered as development group:
+
+1. Planning 
+2. Coding
+3. Build
+4. Testing
+
+Eg
+Business analyst/BA
+System analyst
+design architect
+developers
+build engineer
+test engineer/qa
+
+Operation group: The people who are involved in  below are considered as operation group:
+
+1. Release
+2. Deployment
+3. Operations
+4. Monitoring
+
+Eg.
+Configurtion engineer
+System admin
+Monitoring team
+
+To understand Devops culture, we needs to have understanding of SDLC(software development life cycle)
+
+1. Waterfall model
+2. Prototype model
+3. INcrementatl/Iterative model
+4. Spiral model
+5. RAD model
+6. Big-bang model
+7. Fish model
+8. V model
+9. Agile model
+10. Deveps model
+
+Importal models to discuss:
+1. Waterfall model(Linear Sequential model) - Everything works here step by step. Next step can only start when previous one is finished.
+Requirement gathering/collection(BA)
+`Requirement analysis(SA)
+``Design
+```Development
+````Testing
+`````Release
+``````Maintenance
+
+This methodology is not frequently used because of the frequent requirement change and less development time.
+
+2. Agile Model:
+This is the most frequently used model. This model is divided into multiple sub models
+1. Rational unify process(RUP)
+2. Adaptive software development(ASD)
+3. Feature driven development(FDD)
+4. Crystal clear
+5. Dynamic software development method(DSDM)
+6. Extreme Programming(xp)
+7. SCRUM model, etc
+
+Among all these models, SCRUM is most frequently used and popular model.
+
+Agile => Speed
+SCRUM =>It is an iterative model in which software product is developed in increment and each incremetn is called as sprint.
+
+SCRUM is derived from Rugby game.
+In every sprint 7-9 members will work
+each sprint will be delivered from 1 week to 3 weeks.
+
+3. Devops model
+Devops and Agile both are different methodologies. However there are some similarities as well :
+1. Both are software development methodologies.
+2. Both models concentration on rapid software development
+
+Differences:
+1. The difference will come once development of the project completed.
+Agile model talks about only development but not operation. However, Devops model talks about complete product life cycle like development and operation.
+
+
+2. In agile model, sepate people are responsilble for development, testing, deployment etc. However  in deveps, the devops engineer is responsible for everything like development to operation and operation to development.
+
+3. Agile model wont force us to use automation tools. However devops model is completely based on automation.
+
+4. Agile is always giving highest priority for speed. But deveops giving priority for quality and speed.
+
+5. In agile, client is responsible for providing feedback. But id devops. immediate feedback is available from the monitoring feedback.
+
+Version Control System tool:
+======================================
+Verson control system is also known as software configuration management(SCM) or source code management(SCM).
+
+Need of version control system?
+-------------------------------
+1. Maintaining multiple versions manually is very tedious task.
+2. Each and every change should be tracked.
+	Who did the change
+	when he did the change
+	which changes he did etc
+3. Overwriting of the code should not happen.
+
+4. Developers have to share their code to peer developers, so that multiple developers will work in collaborative way.
+5. Parallel development must be required.
+
+How version control system works:
+----------------------------------
+
+Version conrol system always talks about files which contains source code.
+
+Version control is required by developer, tester, manager, architect who ever have multiple version of the file.
+
+========================================
+Basic Terminonlogy of Versoin  Control System
+
+Working directory/Workspace => The files where developers create the file and writes the code. WD doesn't have the version.
+
+Repository => In repository, all files are stored in the form of version. Any change in the file is stored in the form of new version.
+
+
+Commit => When developer make any change in the working directory and save to Repository, this operation is known as commit
+
+
+Checkout => When developer want any version from repository to current working directory is called as checkout.
+
+========================================
+Type of Version Control Systems:
+=======================================
+
+1. Centralized Version Control System
+2. De-Centralized/Distributed version control system
+
+1. Centralized Version Control System
+---------------------------------------
+Centralized-> These types of version control system contain only one central repository. Every developer is required to connect with that to continue his work. 
+
+Developers will commit and checkout on central repository server as total project code is stored there.
+
+It is easy to setup but has some limitation:
+
+1. If anything happens to Central Repository server, its difficult to recover the code base as everything is stored in single place.
+
+2. All checkout and commmit operations has to be performed by connecting to Central Repo Server which means all the developers have to be connected to Central Repo. If network outage is there then developer cannot commit or checkout.
+
+3. If no of files or the developers increases, it becomes quite difficult to again manage the code.
+
+2. Distributed Version Control System
+------------------------------------------
+
+Repository is distributed.
+
+In this system, every workspace has local repository.
+
+1. All commit and checkout operations will be perfomed locally and hence performance is more.
+
+2. If network outage, still version control is available.
+
+3. There is no question of single point of failure.
+
+commit and checkout:
+----------------------
+**These operations will be perfomred locally between working directory and repository.
+To perform these operations, network is not required.
+
+push & pull operations:
+-------------------------
+push: The process of sending files from our repository to other's repository.
+pull: The process of getting files from other's repository to local repository.
+
+** push and pull will be perfomed between 2 repositories.
+These are remote operations.
+Compulsory internet should be there.
+
