@@ -180,3 +180,12 @@ pull: The process of getting files from other's repository to local repository.
 These are remote operations.
 Compulsory internet should be there.
 
+Distributed VCS with Remote Repository
+--------------------------------------
+
+Remote VS Centralized Repository.
+1. Commit and checkout operations are performing on local repository not on remote repository.
+
+2. Every developer has their own local repository along with remote repository at server.
+
+Main job of remote repository is to share the complete work to peer developer
