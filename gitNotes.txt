@@ -217,4 +217,30 @@ To store 12GB of files, GIT only requires 420 MB. It use Hash alogrith internall
 
 3) Branching and Merging:
 --------------------------
+We can create and work on multiple branches simultaneously and all these branches are isolated from each other. It enables multiple workflows.
+
+5. Freeware and open source:
+GIT is free and available on most of the platform.
+
+GIT Architecture:
+--------------------
+Git has 2 repos:
+1. Local Repo
+2. Remote Repo
+
+Usually total project code is available in remote repo.
+
+Current work of developer will be stored in local repo.
+
+New files will be created in working directory.
+Once work completed, we have to add these files to staging area. For this we have to use command:
+git add => Sending files from working directory to staging area
+
+git commit => Staged changes will be moved to local repo.
+
+git push => Move local repo changes to Remote Repo
+
+git clone => Creates  a new local repo from the remote repo
+
+git pull => Gets updated fles from remote repo to local repo
 
