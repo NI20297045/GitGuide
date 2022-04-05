@@ -189,3 +189,32 @@ Remote VS Centralized Repository.
 2. Every developer has their own local repository along with remote repository at server.
 
 Main job of remote repository is to share the complete work to peer developer
+
+GIT
+===================
+
+GIT is Distributed version control system tool.
+
+Linux => It is not an operating system. Its is just a Kernal.Operating system name is GNU. It is famous as GNU/Linux
+Linus Torvals(Finnish Software Engineer) On his name itself Linux was named and earlier those days every software used to end with (x).
+GIT is developed by Linus Torvalds.
+
+Features of GIT:
+------------------
+1. Distributed Model:
+a) No single point of failure.Every developer has local repository.
+b) All commit and checkout are performed locally and hence performance and speed is more.
+c) Developer workspace needs not to be connected to network always.
+
+2) Staging area:
+-----------------
+In GIT commit is 2-step process. 
+First we have to add files to staging area from working directory and then we can commmit from that staging area to Repository.
+
+Advantage of staging area is we can cross check or double check out changes before commit.
+
+To store 12GB of files, GIT only requires 420 MB. It use Hash alogrith internally.GIT takes snapshot when files are staged from staging area.
+
+3) Branching and Merging:
+--------------------------
+
