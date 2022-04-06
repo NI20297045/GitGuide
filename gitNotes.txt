@@ -292,6 +292,50 @@ Any file which is already tracked by git,but it is modified in working directory
 
 git log => Command to view lods by version.
 
+How to install git on windows:
+-------------------------------
+
+1. Open https://git-scm.com/download/win
+
+2. Click on "Click here to download" Or choose based on your computer bit.
+
+3. Install the executable file.
+
+Steps for using git
+Open GitBash
+
+pwd => Shows current working directory
+
+mkdir "Directory Name" => Create a new working directory
+
+cd D:"Directory Name" => Change working directory
+
+ls => shows all the files within the current working directory
+
+ls -a => shows all the files including hidden files from the current working directory
+
+Git by default do not knows which field needs to be track. For that we need to instruct git by following command
+
+git init => Create a empty local repo. It adds a .git(name of local Repo) hidden folder in the working directory and enables version controlling.
+
+
+cat > A.txt
+This is first line.
+=> Create a text file with the date in current Working directory.
+
+mv "fileName" "directoryName" => moves file to the specified directory.
+
+At the time of git init => Nothing is tracked. Files has to move to stage inorder to start tracking
+
+git ls-files => Show information about files in the index and the working tree
+
+If git is already initialized than again initiazaling doesn't make any change in staging or commit area. Only some internal memory refresh happens.
+
+git commit -a -m "Commit Message" = >Directly Commit with staging(Only applicable for modified file not for new file)
+
+
+
+
 
 
 
