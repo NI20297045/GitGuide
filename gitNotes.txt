@@ -244,3 +244,54 @@ git clone => Creates  a new local repo from the remote repo
 
 git pull => Gets updated fles from remote repo to local repo
 
+Life Cycle of file in GIT:
+---------------------------
+Every file in the git, one of the following 4 stages,
+1. Untracked
+2. Staged
+3. Modified
+4. In Repository/Commited
+
+Untracked:
+---------------
+Whenever a new file is created in working directory, GIT is not aware and also do not start tracking it. It starts tracking once the file is added to the staging area.
+
+git status : To known status of all the file in all the area.
+
+Staged:
+----------
+The files which are added to staging area are said to be in staged state.
+
+git add a.txt => Add only a.txt file to staging area
+git add . => Add all the files to staging area
+git add a.txt b.txt c.txt => Add multiple files a.txt, b.txt, c.txt to staging area
+git add *.txt => Adds all the file with .txt extension to the staging area.
+
+Commited:
+---------
+The files which is committed is said to be in repository state or committed state. In order to commit the files first user info has to be config
+
+git config --global user.email "abc@gmail.com"
+git config --global user.name "abc"
+
+Once user is configured in the git, next time onwards use the command 
+For single line commit message
+git commit -m "Your message for the commit"
+OR
+For multiple line commit message
+git commit (Enter)
+Type commit Message from editor and save
+
+Modified:
+-----------
+If the file added to staging area or committed, it is tracked by git. Whenever the same file in working directory is update, the status becomes modified
+
+OR
+
+Any file which is already tracked by git,but it is modified in working directory is said to be in modified state.
+
+git log => Command to view lods by version.
+
+
+
+
