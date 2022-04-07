@@ -424,6 +424,32 @@ commit message
 
 
 
+Master is the most recent commit. Master is pointed by another reference HEAD.(Symbolic reference =>  Reference to another reference)
+
+git config:
+---------------
+This command can be used for git configuration like username, email id, etc.
+
+git config --list
+	To listout all the git configutations
+
+git config user.name
+	Display user name configured for git
+
+git config user.name "New Name"
+	It will override the old username with new name
+
+git --global config user.name "New Name"
+
+without global config vs with global config
+------------------------------------------
+For all repo which is managed by current git==>global
+
+Without global means: configuration applicable for current repo.
+
+It is recommended not to use global we might have to work on multiple project where remote repo are different and username also need to be different.
+
+
 
 
 
