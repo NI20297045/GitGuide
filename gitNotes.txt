@@ -333,6 +333,96 @@ If git is already initialized than again initiazaling doesn't make any change in
 
 git commit -a -m "Commit Message" = >Directly Commit with staging(Only applicable for modified file not for new file)
 
+Example to describe basic GIT commands:
+-------------------------------------------------
+
+Create a new project in folder:
+mkdir project2
+
+Enter into project2 directory
+cd project2
+
+By default version control is not applicable for this workspace(project2).
+
+Now we have to request GIT to start version controlling by following command:
+
+1. git init
+---------
+Once we create workspace, and if we want version control to be enabled,
+we require a local repository ==> .git
+If any file starts with . then by default its a hidden directory.
+
+ls -a => Display all files including hidden file
+
+2. git status:
+----------------------
+It shows the current status of all files in each area, like 
+untracked files,
+modified files,
+stages files, etc.
+
+cat > file1.txt 
+First line in file1.txt
+=> Creates a new file current working directory
+
+cat > file2.txt 
+First line in file2.txt
+=> Creates a new file current working directory
+
+if check status again using git status
+it will show the file1.txt and file2.txt are untracked
+
+It display verbose output which mean very details output. However if want concise output than use -s with git status
+Ex git status -s
+?? indicates untracked
+A indicates files added to staging area
+
+3.git add
+----------------
+To add files from working directory to staging area.Once we added files to staging area, then git track these files and ready for commit.
+
+git add file1.txt file2.txt
+
+staging area is also known as index area or cache area. It is logical/virtual area but not physical area
+
+i) To add all files to staging area
+	git add . 
+	git add *
+	git add -a
+ii) To add particular files 
+	git add file1.txt file2.txt
+iii) We can use even regular expression patterns also
+	git add *.java
+	git add *.txt
+
+git ls-files => Displays which files tracked by git.
+
+4. git commit:
+---------------------
+If we want to commit staged changes, then we have to use git commit. All the files which are in staging area gets committed to local repo. 
+
+git commit -m "commit message"
+
+In order to commit we need to provide the message
+
+For every commit , commit id will be generated. This Commit id is hash which is hexadecimal number of 40 characters.
+
+For every commit git records below are tracked:
+author name and mail id
+timestamp
+commit message
+
+git commit -a -m "Commiting and staging file at same time" => It only works when file is already in staging area
+
+5. git log:
+----------------
+It shows history of all commits
+commit it
+author name and mail id
+timestamp
+commit message
+
+
 
 
 
