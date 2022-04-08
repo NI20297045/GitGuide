@@ -449,7 +449,87 @@ Without global means: configuration applicable for current repo.
 
 It is recommended not to use global we might have to work on multiple project where remote repo are different and username also need to be different.
 
+git log:
+--------
+If we want to see history of all commits in local repository we can use git log command
+It's most commonly used command
 
+cat > z.txt
+Hello first line inside z.txt
+
+git ls-files //New files are not tracked by default
+
+git add z.txt //It starts tracking now
+
+git commit -m " A new file z.txt added" //File commited to local repo
+
+git status //Nothing is there as everything is committed
+
+git log // Its going to display all the commit history that has been done as of now in the local repo.
+
+git log provides detailed log information
+	commit id, author, date, commit message
+
+Optional commands available with git log command:
+-------------------------------------------
+git log --help //Provides the help menu for git log command
+
+How to see log information of a particular file:
+---------------------------------------------
+
+git log z.txt
+
+Option-1: --oneline option to get brief information
+git log 
+	detailed information
+	commit Id(40 chars)
+	author name and email
+	timestamp
+	commit message
+
+git log --oneline
+	display one line per commit
+	commit Id(7 chars)+ commit message
+
+**** This option is very helpful if we have lot of commits and to identify commit based on message.
+
+Option-2: -n option to limit the number of commits to display:
+---------------------------------------------------
+git log -n 2 => It will show the last two commits
+git log -3 => display last 3 commits
+git log --max-count=4 =>  display last 4 commits
+
+Option-3: --grep option to search based on given pattern in the commit message.
+
+git log --grep="added" => It will display all the commit with message where added string is available
+
+Option-4: Show commits more recent than a specific date or time.
+------------------------------------------------
+
+--since="2022-04-01" => After 25 do we have any commit
+
+--after="2022-04-01"
+
+--after="10 days ago"
+
+--after="3 hours ago"
+--after="3 hours 5 minutes ago"
+--after="10 minutes ago"
+
+Option-5: Show commits older than a specific time
+-------------------------------------------------
+git log --until="2022-02-02"
+git log --before="2022-02-02"
+
+Option-6: Show  commits based on author:
+---------------------------------------------
+git log --author="Name of author"
+
+Option-7: --decorate option to display extra information
+--------------------------------------------
+branch, name, HEAD, tags information etc
+
+git log --decorate
 
 
 
