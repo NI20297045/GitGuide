@@ -532,6 +532,191 @@ branch, name, HEAD, tags information etc
 git log --decorate
 
 
+git diff
+-----------
+
+Our files are stored in 4 areas:
+1. Working directory
+2. Staging area
+3. Local Repository
+4. Remote Repository
+
+Once file is created in working directory then we add file to staging area after that file from staging area is commited to local repository and  finally from local repository to remote repository.
+Now users can make any change in any file in any area and there can be difference between these files. Using git diff command we can find out the difference between the files.
+
+
+This is very comman requirement. In the content of a file:
+	Working directory Vs Staging area
+	Working directory vs local repo
+	Staging area vs last commit
+	staging area vs specified commit
+	etc....
+
+Project Demo:
+--------------
+
+mkdir Project4 //Creates working directory with name Project4
+cd Project4 //Navigated inside Project4
+git init //Initializes git for source tracking
+cat > file1.txt // create file1.txt with below 2 line
+First line in file1.txt
+Second line in file1.txt
+
+cat > file2.txt // create file2.txt with below 2 line
+First line in file2.txt
+Second line in file2.txt
+
+
+git add . //Add all the files in directory to staging area
+
+git commit -m "Each file contains two lines" //Commit all the files from staging area to local repo
+
+Now add 2 more lines in file1.txt
+cat >> file1.txt
+Third line in file1.txt
+Fourth line file1.txt
+
+Now add 2 more lines in file1.txt
+cat >> file2.txt
+Third line in file2.txt
+Fourth line file2.txt
+
+git commit -am "2 files and each file contains 4 lines" //Directly commits the file working directory to staging area
+
+Add more lines in file1.txt //Appends one more line
+cat >> file1.txt
+Fifth line in file1.txt
+
+git add .
+
+cat >> file1.txt
+Sixth line in file1.txt
+
+Now every area has different number of lines.
+
+case-1: To see difference in file content between working directory and staging area:
+----------------------------------------------------------
+git diff file1.txt
+	To compare working directory and staging area for file1.txt
+
+1) diff --git a/file1.txt b/file1.txt
+a/file1.txt => source copy which means staging area
+b/file2.txt => Destination copy which means working directory
+
+2) index 8445405..246caab 100644
+8445405 => hash of source file content(staging area)
+246caab	=> hash of destination file content(working directory)
+100644	=> GIT File mode where 100 represents type of file ASCII text and 644 represents file permission
+
+3) --- a/file1.txt
+	Source copy missing some lines(staging area)
+4) +++ b/file1.txt
+	Means new lines added in destination copy (working directory)
+
+5) @@ -3,3 +3,4 @@
+
+-3,3
+-means source version
+From 3rd line total 3 lines
+
++3,4 
+ + means destination version
+from 3rd line onwards total 4 lines
+
+These numbers are not fixed this vary from use case
+
+ Third line in file1.txt
+ Fourth line in file1.txt
+ Fifth line in file1.txt
++Sixth line in file1.txt
+
+If any line prefixed with space that means its unchanged and if any line prefixed with + mmeans it is added in destination copy.
+
+We can conclude one new line added in working copy when compared with staged copy.
+
+Git is always going to compare from right to left like staging to working directory.
+
+2) Working directory vs last commit:
+-----------------------------------------
+last commit can be referenced by HEAD.
+
+git diff HEAD file1.txt 
+
+3) Staging vs last Commit
+-----------------------------
+We have to use  -staged option or --cached option
+
+git diff --staged HEAD file1.txt
+git diff --staged file1.txt
+
+4) Working directory Vs Specific Commit
+-------------------------------------------
+git diff commitId file1.txt
+
+5) Staging vs specific commit
+---------------------------------
+git diff --staged commitId file1.txt
+
+6) Between two specified commits
+---------------------------------
+git diff commitId-1 commitId-2 file.txt
+
+git diff commitId-2 commitId-2 file.txt
+
+7) Between last commit vs last but one commit
+----------------------------------------------
+commit-7
+commit-6
+commit-4
+commit-3
+commit-2
+commit-1
+
+git diff HEAD HEAD~1 file1.txt
+
+To see difference in content between two branches:
+----------------------------------
+git diff master test
+
+To see difference in local repository and remote repository:
+-------------------------------------------------------------
+
+git diff master origin/master
+
+Summary:
+------------
+1) Working directory vs staged copy
+	git diff file1.txt
+
+2) Working directory vs last commit
+	git diff HEAD file1.txt
+
+3) Staging area vs last commit
+	git diff --staged HEAD file1.txt
+
+4) Working directory vs specific commit:
+	git diff commitId file1.txt
+
+5) Staging area vs specified commit:
+	git diff --stage commitId file1.txt
+
+6) Between two commits
+	git diff source_commit_id destination_commit_Id file1.txt
+
+7) last commit vs last but one commit:
+	git diff HEAD HEAD^1 file1.txt
+	git diff HEAD HEAD~^1 file1.txt
+
+8) To compare all files
+	git diff source_commit_id destination_commit_id
+
+9) Two brances in local repo
+	git diff source_branch_name destination_branch_name
+
+10) Local repo vs remote repo:
+	git diff localbranchname remotebranchname
+
+
 
 
 
