@@ -880,6 +880,43 @@ git checkout . => Bring all changes from staged area to working directory.
 
 If a new file is created and its not in staging area than this cannot be discarded. It only works with tracked file.
 
+git references:
+------------------
+For most of the commands (like git log, git diff etc) we have to use commit ids as arguments. But remembering these commit id is very difficult. 
+
+40 length commit id || 7 characters.
+
+Git provides some sample names for these commit ids. We can use these names directly instead of commit ids. These are just pointers to commit ids.
+These sample names are nothing but references or refs.
+
+git references are pointers to commit ids.
+
+The most recent commit id => master or HEAD 
+
+.git/refs directory stores all the references.
+
+heads, tags and remotes.
+
+Example:
+------------
+
+mkdir 'project7'
+cd project7
+git init
+vi file1.txt // add 'First line in file1.txt'
+git add file1.txt
+git commit -m 'first commit'
+
+//One commit done
+
+git log now displays the commit info along with id.
+
+What is master?
+------------------
+1. Master is name of the branch. 
+2. It is a reference(ponter) to last commit. Hence wherever last commit id required, we can use simply master.
+
+
 
 
  
