@@ -847,6 +847,43 @@ rm file4.txt //Deletes the files from working directory
 
 git ls-files //Files is still present in staging area
 
+git checkout command:
+---------------------
+We can use checkout command to discard unstaged changes in the tracked files of working directory.
+Unstaged changes => The chnges which are not added to staging area.
+tracked files=> The files which are tracked by git.
+
+Example:
+-----------
+mkdir project6
+cd project6
+git init
+vm file1.txt //Add "First line in file1.txt
+vm file2.txt //Add "First line in file2.txt
+
+git add .
+git commit -m 'Both files has been added'
+
+vi file1.txt //Add 'Second line in file1.txt'
+
+git add file1.txt
+vi file1.txt //add 'third line in file1.txt'
+
+git diff file1.txt
+
+git checkout --file1.txt //Bring back staged changes to working directory
+git checkout //It listout the files for which checkout is applicable.
+
+After checkout, working directory copy and staged copy have same content.
+
+git checkout . => Bring all changes from staged area to working directory.
+
+If a new file is created and its not in staging area than this cannot be discarded. It only works with tracked file.
+
+
+
+ 
+
 
 
 
