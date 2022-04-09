@@ -775,6 +775,81 @@ Between two commits:
 ---------------------
 git difftool commitId1 commitId2 file1.txt
 
+To remove files from different areas:
+---------------------------------------
+git rm command
+
+Example:
+---------
+
+mkdir "project5"
+cd project5
+git init
+vi file1.txt Add line "First line in file1.txt"
+vi file2.txt Add line "First line in file2.txt"
+vi file3.txt Add line "First line in file3.txt"
+
+All these 3 files are now available in working directory and now we need to track it
+
+git add .
+git status
+
+git commit -m "3 new files added"
+
+Now these 3 files are available in working directory, staging area, local repo.
+
+Below are possible scenarios:
+----------------------------
+To remove files from both staging area and working directory
+To remove files from only staging are but not from working directory
+To remove files only from working directory
+To remove files from local repo //Using git Ignore
+
+Case -1 To remove files from both staging area and working directory
+------------------------------------------------------------
+git rm file1.txt
+
+ls //(Without git)check file present in working directory
+	// Displays file1.txt file2.txt file3.txt
+git ls-files //(With git)
+	//Displays file in staging area
+	//file1.txt, file2.txt, file3.txt
+
+git rm file3.txt // Remove file from Working directory and Staging area
+
+now check ls and ls-files file1.txt has been removed
+
+git commit -m 'file3.txt removed from both wd & staging'
+
+git rm // Without any argument it will get an error
+
+git rm . -r// With -r it will delete all the files
+
+git commit -m 'all files from both wd and staging area removed'
+
+
+
+Case-2: To remove files from only from staging area but not from working directory:
+------------------------------------------------------------
+vi file4.txt //Add First line in file4.txt
+vi file5.txt //Add First line in file5.txt
+
+git add .
+git commit -m "file4.txt and file5.txt added"
+
+git rm --cached file4.txt //Removes file from staging area
+
+Case-3: To remove file only from working directory but not from staging area:
+---------------------------------------------------
+git command is not there, we can use normal linux command
+
+rm file4.txt //Deletes the files from working directory
+
+git ls-files //Files is still present in staging area
+
+
+
+
 
 
 
