@@ -716,6 +716,66 @@ Summary:
 10) Local repo vs remote repo:
 	git diff localbranchname remotebranchname
 
+GUI/Visual tool for checking differences:
+------------------------------------------
+Helix Visual Merge Tool(p4merge),
+Meld,
+etc....
+
+p4Merge => Its acts as Merga and diff tool as well.
+perforce 4 Merge => p4merge
+
+How to download and install p4merge tool:
+-------------------------------------------
+
+https://www.Perforce.com/downloads/visual-merge-tool
+Download based on Operating system compatibility and you can skip registration.
+
+Install the executable file p4vinst64.exe
+Select only Merge and Diff tool and keep selecting next next.
+
+In order to Use p4merge for git bash, we need to set the path 
+
+This PC>Properties>Advance setting> Environment Variable > Path > New > Add the Path of Perforce.
+
+Perforce is generally installed in C:\Program Files\Perforce
+
+How to configure p4merge with git:
+-------------------------------------
+difftool configuration:
+-----------------------
+git config --global diff.tool p4merge
+git config --global difftool.p4merge.path "C:\Program Files\Perforce\p4merge.exe"
+
+path where exe file is availabe = C:\Program Files\Perforce\p4merge.exe
+
+git config --global difftool.prompt false
+
+mergetool configuration
+------------------------
+git config --global merge.tool p4merge
+git config --global mergetool.p4merge.path C:\Program Files\Perforce\p4merge.exe"
+git config --global mergetool.prompt false
+
+git config --global --list //Displays config including p4merge settings
+
+Now run git difftool file1.txt //This will open a gui and will show the difference in more user friendly way.
+
+Only difference is instead of diff, we need to use difftool.
+
+Working directory Vs Staging Area:
+----------------------------------
+git difftool file1.txt
+
+Working directory vs last commit:
+-----------------------------------
+git difftool HEAD file1.txt
+
+Between two commits:
+---------------------
+git difftool commitId1 commitId2 file1.txt
+
+
 
 
 
