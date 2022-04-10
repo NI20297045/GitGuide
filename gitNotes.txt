@@ -914,8 +914,33 @@ git log now displays the commit info along with id.
 What is master?
 ------------------
 1. Master is name of the branch. 
-2. It is a reference(ponter) to last commit. Hence wherever last commit id required, we can use simply master.
+2. It is a reference(pointer) to last commit. Hence wherever last commit id required, we can use simply master.
 
+git show commitId => Display info related to the commit like lines added or removed,etc
+git show master => If we need info related to the last commit and we don't want to supply commitId, we can use master keyword which refereces the last commit id.
+
+master => Last commit
+master~1 => Second last commit
+master~2 => Third last commit and so on
+
+What is HEAD:
+---------------
+Head is reference to master. It is a reference to another reference which is generally called as symbolic reference.
+
+By default HEAD is always pointing to the master.
+
+.git/refs/heads/master
+
+HEAD information is available in .git directory.
+
+git show commitId //Display info related to particular commit Id
+git show master	//Display info related to last commit id
+git show HEAD //Display info related to master i.e. last commit id if branch is not detached
+git show HEAD~1 //Display info related to second last master i.e. second last commit id if branch is not detached
+
+Detached HEAD:
+-------------
+Sometimes HEAD is not pointing to branch name, such type of HEAD is called detached HEAD.
 
 
 
