@@ -942,7 +942,49 @@ Detached HEAD:
 -------------
 Sometimes HEAD is not pointing to branch name, such type of HEAD is called detached HEAD.
 
+git reset command:
+--------------------
+Just like reset to default settings.
 
+There are two utilities of git reset command:
+----------------------------------------------
+1. To remove changes from staging area
+2. To undo commits at repo level
+
+To remove changes from staging area:
+------------------------------------
+It will bring changes from staging area back to working directory.
+It is opposite to git add command.
+
+Example:
+---------
+
+mkdir 'project7'
+cd project7
+git init
+vi file1.txt //add 'First line in file1
+git add file1.txt
+git commit -m 'First commit'
+git status //Working tree is clean
+vi file1.txt //Add 'Second line in file1'
+git status //Working tree is not clean as modified file is there
+git add file1.txt
+git status //On branch master, changes to be commited will be displayed
+git reset file1.txt //Changes from staging area will be reverted
+
+git checkout vs git reset:
+---------------------------
+git checkout can be used to discard unstaged changes in working directory
+git reset can be used to discard staged changes from staging area
+
+git rm -- rm cached vs git reset:
+---------------------------------
+git rm --cached => It will delete the file from staging area
+git reset file1.txt => The file won't be deleted from staging area but reset to previous state.(one step back)
+
+Q. We modified the content of file1.txt and added to staging area. But we want to ignore those changes in both staging area and in working directory.
+A. git reset file1.txt
+   git checkout --file1.txt
 
  
 
