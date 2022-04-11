@@ -985,14 +985,72 @@ git reset file1.txt => The file won't be deleted from staging area but reset to 
 Q. We modified the content of file1.txt and added to staging area. But we want to ignore those changes in both staging area and in working directory.
 A. git reset file1.txt
    git checkout --file1.txt
+To undo commits at repository level
+-------------------------------------
+We can also use reset to undo commit at repo level.
 
- 
+syntax:
+--------
+git reset <mode> commitid 
+	Moves the HEAD  to the specified  commit and all remaining recent commits will be deleted from repository.
 
+It is not possible to delete specific commit.
+Mode will decide whether these changes are going to remove from staging area or not , from working directory or not.
+Deletion of file is permanent.
 
+The allowed values for the mode are:
+	--mixed
+	--soft
+	--hard
+	--keep
+	--merge
+--mixed reset mode:
+--------------------
+It is the default mode.
+git reset --mixed commitId
+git reset commitId
 
+To discard/remove commits from repo and from staging area also.
+It won't touch working directory.
+We can revert because changes are available in working directory.
 
+Example:
+---------
 
+mkdir project8
+cd project8
+git init
+vi file1.txt //add 'first line in file1
+vi file2.txt // add 'first line in file2
 
+vi file3.txt // add 'first line in file3
 
+git add file1.txt
+git commit -m 'File 1 added'
 
+git add file2.txt
+git commit -m 'file2 added'
 
+git add file3.txt
+git commit -m 'file3 added'
+
+git log --oneline
+
+To remove last commit:
+----------------------
+git reset --mixed commitId
+git reset commitId
+git reset --mixed HEAD~1
+git reset HEAD~1
+(all are same)
+
+1. To add file to repo again
+ 	git add file3.txt
+	git commit -m 'File3 added again'
+2. git checkout --file3.txt
+
+To remove last 2 commits:
+-----------------------
+
+git reset --mixed HEAD~2
+git reset --mixed commitID
