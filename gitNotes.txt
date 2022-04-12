@@ -1054,3 +1054,55 @@ To remove last 2 commits:
 
 git reset --mixed HEAD~2
 git reset --mixed commitID
+
+GIT Aliasing:
+---------------
+Alias => Nickname or other alternative name.
+We usually use mutlitple command very commanly like:
+git log --oneline
+git status
+
+We can define our own nickname for most commanly used lengthy command.
+Ex:
+git log --oneline --oneline --decocate => git deco
+
+Q1. Create alias name 'one' to the following command
+	git log --oneline
+	
+A1. 
+
+Step 1: Check whether alias name already used or not:
+-------------------------------------------------
+git one
+
+Step 2: Creating alias name:
+----------------------------
+Original command: git log --oneline
+alias:one
+
+By using git config command we can define aliases:
+Syntax:
+git config --global alias.aliasName "Original command without git keyword"
+
+eg:
+git config --globla alias.one "log --oneline"
+
+Now you can use:
+git one
+
+Q2. Create alias name 's' for the following git command
+	git status
+
+A2. 
+	git s //Git s is not a command that means it can be used
+	git config --global alias.s "status"
+	git s //Run the command
+	
+Where these aliases are stored?
+----------------------------------
+
+.gitconfig file 
+In user's home directory
+C:\Users\lenovo
+
+
