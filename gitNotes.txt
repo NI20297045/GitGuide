@@ -1164,6 +1164,80 @@ Git never give any special importance for directories.
 
 Whenever we add empty directory, then git status do not considers it. However if we add files to directory, its going to show that directory is untracked.
 
+Branching:
+--------------
+1. What is branching?
+2. What is the need of creating a new branch?
+3. Various commands related to branches>
+4. Demo Example
+5. Multiple scenario where branching is required?
+6. Advantages of brances?
+7. Merge Operation.
+8. How to resolve merge conflicts?
+
+
+1. Important concept 
+2. Mandatory concept and unavailable concept
+
+We created multiple files
+We did several commits
+
+are said to be in master branch.
+
+master branch is default branch/main branch in git.
+
+Generally main source code we will place in master branch.
+
+What is the need of creating a branch?
+---------------------------------------
+Master branch is the responsible for developing web application.
+Child branch 1 is responsible for Android compatibilty work
+Child branch 2 is responsible for ios compatibility work
+
+Multiple flows => Parallel development is possible, code base is very clean
+
+Conclusion:
+------------
+1. Once we create a branch, all files and commits will be inherited from parent branch to child branch.
+In child branches we can create new files and we can perform any changes in existing file and we can commit those changes based on our requirement.
+
+2. All branches are isolated to each other. The changes performed in one branch are not visible.
+
+3. Once we completed our work in child branch, we can merge that new branch with branch or we can push that branch directlyy to the remote repo.
+
+There is no restriction on number of branches. Any number of branches can be created.
+
+Various commands related to branching:
+--------------------------------------
+
+1. To view available branches:
+-----------------------------
+	git branch
+
+	* master (* means default and is provided by git)
+	* indicates the current active branch
+
+2. To create a new branch:
+--------------------------
+git branch branch_name
+git branch androidbr
+
+git branch
+androidbr
+* master
+
+3. How to switch from one branch to another branch:
+---------------------------------------------------
+git checkout => To discard unstaged changes in working directory
+
+git checkout androidbr
+
+shortcut way to create branch and switch to branch:
+---------------------------------------------------
+
+git checkout -b isobr
+	//It will create iosbr and then switch to that branch
+
 
 
 
