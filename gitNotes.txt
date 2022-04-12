@@ -1105,4 +1105,68 @@ Where these aliases are stored?
 In user's home directory
 C:\Users\lenovo
 
+How to ignore unwanted files and directory:
+--------------------------------------------
+In repo, we are saving our files for future purpose. But there are some files which you might not want to place.
+
+We have to create a special file in working diretory:
+	.gitignore
+
+Example:
+---------
+touch customer.java Account.java a.txt b.txt //Create 4 files
+touch .x .y //Create two hidden files
+
+mkdir logs
+touch logs/server.log log/access/log //Create two folder with files
+
+git status //All files are untracked as of now
+
+Now we want a.txt to be ignored
+
+vi .gitignore //Create in working directory
+#Ignore a.txt file //Comment
+a.txt //File name to be ignore
+
+git status
+a.txt will not be displayed and hence it will be ignored by git.
+
+Ignore all .txt files:
+----------------------
+vi .gitignore
+
+# Ignore all .txt files
+*.txt //Provide  regular expression pattern.
+
+git status //It will not display all .txt files
+
+Ignore all hidden files:
+--------------------------
+
+vi .gitignore
+
+#Ignore all hidden files
+.* //Any file name starting with . ie hidden file
+
+git status //Now all hidden files are ignored
+
+Ignore all files in particular directory
+----------------------------------------
+vi .gitignore
+# Ignore all files present in logs directory
+logs/
+
+
+How git treats directories:
+----------------------------
+Git always worries about files but not directories.
+Git never give any special importance for directories.
+
+Whenever we add empty directory, then git status do not considers it. However if we add files to directory, its going to show that directory is untracked.
+
+
+
+
+
+
 
