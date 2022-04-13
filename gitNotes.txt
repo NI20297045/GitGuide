@@ -1317,7 +1317,47 @@ Advantages of branching:
 5. Bug fixing will become very easy.
 6. Testing new ideas or new technologies will become very easy.
 
+Merging of a Branch:
+----------------------
+We created a branch to implement a new feature.
+We completed implementatoin of that new feature.
+We have to combin those changes from child branch with parent branch.
 
+This combining process is nothing but merging process.
+
+git merge command.
+
+git merge childbranch
+
+The branch which wants to adapt changes has to request merge request.
+
+Demo Example:
+-------------
+
+mkdir project9
+cd project9
+
+git init
+touch a.txt b.txt
+git status
+git add a.txt; git commit -m 'c1m'
+git add b.txt; git commit -m 'c2m'
+
+git log --oneline //2 commits are available and master points to c2m
+
+git branch //Master exits
+
+git checkout -b feature //Creates a new feature branch ansd also switches from master to feature
+
+touch x.txt y.txt
+git add x.txt; git commit -m 'c1f'
+git add y.txt; git commit -m 'c2f'
+
+ls // 4 files in feature branch
+git log --oneline // 4 commits in feature branch
+
+git checkout master //switch to master
+git merge feature
 
 
 
