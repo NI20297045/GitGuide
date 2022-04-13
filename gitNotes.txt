@@ -1238,6 +1238,71 @@ shortcut way to create branch and switch to branch:
 git checkout -b isobr
 	//It will create iosbr and then switch to that branch
 
+Branch Demo
+--------------
+
+mkdir project 8
+cd project8
+
+git init
+touch a.txt b.txt c.txt
+
+git add a.txt; git commit -m 'a.txt added'
+
+git add b.txt; git commit -m 'b.txt added'
+
+git add c.txt; git commit -m 'c.txt added'
+
+git log --oneline
+
+git branch //only master branch is available
+
+Suddenly client came and asked to work on new feature:
+
+So we need to create a new branch
+
+git branch 'androidbr'
+git checkout androidbr
+
+git branch
+
+ls // all file are present in new branch androidbr
+git status // all commit is also available in android br
+
+1. All files and commits inherited.
+
+touch x.txt y.txt z.txt //New files in androidbr
+git add x.txt; git commit -m 'x.txt added'
+git add y.txt; git commit -m 'y.txt added'
+git add z.txt; git commit -m 'z.txt added'
+
+2.	Master =3 files and 3 commits
+	AndroidBr = 6 files and 5 commits
+
+git checkout master //switch to master branch
+git branch //display master branch
+ls //3 files
+git log --onelne //3 commits only
+
+touch d.txt //New file in master branch
+
+git add.txt' git commit -m 'd.txt added'
+
+ls //4 files in master branch
+git log --oneline //4 commits in master
+
+This new file and commit are added in master branch and is not accessible in android branch. Because android br was created before D.txt creation. Hence it proves, all branches are isolated to each other.
+
+Q. Is git creating a new directory?
+A. Git wont create any new directory
+
+Q. Is git copy all the files from parent to child?
+A. It is logical duplication of files not physical.
+
+Head pointer will be changed to current active branch.
+
+
+
 
 
 
