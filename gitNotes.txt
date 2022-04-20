@@ -1359,7 +1359,130 @@ git log --oneline // 4 commits in feature branch
 git checkout master //switch to master
 git merge feature
 
+Merging of a Branch:
+---------------------
+We crated a branch to implement a new feature.
+We completed implementation of that new feature.
+We have to combine those changes from child branch with parent branch.
 
+This combining process is nothing but merging.
+
+git merge command.
+
+git merge childbranch // from master branch we need to invoke this command
+
+Demo Example:
+------------------
+mkdir project9
+cd project9
+git init
+touch a.txt b.txt
+
+git status
+git add a.txt; git commit -m 'c1m'
+git add b.txt; git commit -m 'c2m'
+
+git log --oneline // 2 commits are available as of now
+
+git branch // display only master branch
+
+git checkout -b feature //Create new branch and switch to this branch
+
+git branch // now its point feature  branch
+
+touch x.txt y.txt
+
+git add x.txt; git commit -m 'c1f'
+git add y.txt; git commit -m 'c2f'
+
+ls //4 files in feature branch
+git log --oneline // 4 commits (2 from parent + 2 from child)
+
+git checkout master
+git merge feature //Merges changes of feature branch to master branch
+
+ls // Now displays 4 files
+
+git log --oneline //4 commit will be displayed in master as well
+
+2 types of merges:
+------------------
+	1. Fast-Forward Merge
+	2. Three-way merge
+
+1. Fast-Forward Merge:
+-----------------------
+After creating child branch, if we are not doing any changes in the parent branch, git will perform fast forward merge. Because git knows there are no changes in parent branch and hence changes can be directly accepted.
+
+In the fast-forward merge, git simply moves parent branch pointer to the last commit of child branch.
+
+When there are changes both on master and feature branch, then there is a possibility of Merge conflict. However in case of fast forward merge, conflict never arise.
+
+Demo Example:
+------------
+mkdir project10
+cd project10
+git init
+echo "First Line" > a.txt
+git add a.txt; git commit -m "c1m"
+
+echo "Second line" >> a.txt
+git add a.txt; git commit -m 'c2m'
+
+git log --oneline
+
+git checkout -b feature
+
+echo "Third line " >> a.txt
+git add a.txt; git commit -m 'c1f'
+
+echo "Fourth line" >> a.txt
+git add a.txt; git commit -m 'c2f'
+
+git checkout master
+git log --oneline 
+
+git merge feature // Fast forward merge happens which means HEAD will point the c2f commit
+
+If both parent and child branches are updated??
+-----------------------------------------------
+
+After creating child branch if parent branch also contains some new commits, 3-way merge.
+
+Example:
+-------
+
+mkdir project11
+cd project11
+git init
+touch a.txt b.txt
+git add a.txt; git commit -m 'c1m'
+git add b.txt; git commit -m 'c2m'
+
+git log --oneline //2 commits 2 files
+
+git checkout -b feature //Create a new branch
+touch x.txt y.txt
+
+git add x.txt; git commit -m 'c1f'
+git add y.txt; git commit -m 'c2f'
+
+git log --oneline //4 commits and 4 files
+git checkout master // switch to master branch
+
+git touch c.txt
+git add c.txt ; git commit -m 'c3m'
+
+git log --oneline // 3 commits 3 files
+
+Both parent and child branches updated.
+git will perform 3-way merge.
+
+git merge feature
+
+It will create a new commit and now both master and feature branch will point to this new commit.
+
+git merge feature
 
 
 
