@@ -29,7 +29,7 @@ Operation group: The people who are involved in  below are considered as operati
 3. Operations
 4. Monitoring
 
-Eg.
+Eg..
 Configurtion engineer
 System admin
 Monitoring team
